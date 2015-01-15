@@ -1,0 +1,119 @@
+body
+{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.transactions
+{
+    list-style:none;
+    margin-top:10px;
+    padding:0;
+}
+
+.transactions li
+{
+    padding:5px 10px;
+    color:#fff;
+    cursor:pointer;
+    border-radius:5px;
+    margin-bottom:5px;
+}
+
+.transactions .transDate
+{
+    font-size:14px;
+    font-weight:300;
+    margin-right:5px;
+}
+
+.transactions .amount
+{
+    font-size:18px;
+    font-weight:700;
+    margin-right:15px;
+    padding-right:15px;
+    padding-left:15px;
+    border-left:1px solid #fff;
+    border-right:1px solid #fff;
+    width:120px;
+    display:inline-block;
+    text-align:center;
+}
+
+.transactions .income
+{
+    background:#68B388;
+    transition: all .20s ease-in;
+    -moz-transition: all .20s ease-in;
+    -webkit-transition: all .20s ease-in;
+}
+
+.transactions .income:hover
+{
+    background:#396E50;
+}
+
+.transactions .expense
+{
+    background:#E87373;
+    transition: all .20s ease-in;
+    -moz-transition: all .20s ease-in;
+    -webkit-transition: all .20s ease-in;
+}
+
+.transactions .expense:hover
+{
+    background:#D74030;
+}
+
+.transactions .description
+{
+    font-weight:300;
+}
+
+.transactions .delete-transaction
+{
+    float:right;
+    font-size:18px;
+    position:relative;
+    top:3px;
+}
+
+.transactions .transTags
+{
+    float:right;
+    margin-right:10px;
+    margin-top:2px;
+}
+
+.transactions .tag
+{
+    background:#fff;
+    color:#808080;
+    padding:4px 5px;
+    border-radius:3px;
+    font-size:10px;
+}
+
+/* Tagsinput override */
+
+.bootstrap-tagsinput
+{
+    width:100%;
+    margin-bottom:0;
+    padding-left:12px;
+}
+
+/* Bootstrap Override */
+
+.well
+{
+    padding:5px;
+    margin-bottom:10px;
+}
+
+/* Helpers */
+
+.margin-top-10 { margin-top: 10px; }
+
+.nodisplay { display:none; }
