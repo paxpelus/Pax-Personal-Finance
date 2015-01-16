@@ -3,6 +3,18 @@ Meteor.subscribe("transactions");
 Transactions = new Mongo.Collection("transactions");
 
 
+
+//On Home Load
+Template.dashboard.rendered = function() {
+  
+    $.stellar({
+				horizontalScrolling: false,
+				verticalOffset: 40
+			});
+}
+
+
+//On Dashboard Load
 Template.dashboard.rendered = function() {
     $('.datetimepicker').datetimepicker({
       pickTime:false,

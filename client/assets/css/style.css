@@ -3,6 +3,68 @@ body
     font-family: 'Open Sans', sans-serif;
 }
 
+/* Home */
+
+.parallax-window
+{
+    background-attachment: fixed;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	height: 1000px;
+	position: relative;
+}
+
+.photo1{ background-image: url('photo1.jpg'); }
+.photo2{ background-image: url('photo2.jpg'); }
+.photo3{ background-image: url('photo3.jpg'); }
+
+.slogan1
+{
+    float:right;
+    margin-right:50px;
+    margin-top:150px;
+}
+
+.slogan2
+{
+    float:left;
+    margin-left:50px;
+    margin-top:200px;
+}
+
+.slogan3
+{
+    float:right;
+    margin-right:50px;
+    margin-top:200px;
+}
+
+.slogan1, .slogan2, .slogan3
+{
+    background:#f8f8f8;
+    width:400px;
+    border-radius:15px;
+    padding:20px;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
+}
+
+.slogan1 ul, .slogan2 ul
+{
+    margin-top:20px;
+    padding-left:20px;
+    font-size:18px;
+}
+
+.slogan1 h3, .slogan2 h3
+{
+    margin:0;
+    padding:0;
+}
+
+/* Transactions */
+
 .transactions
 {
     list-style:none;
@@ -17,6 +79,7 @@ body
     cursor:pointer;
     border-radius:5px;
     margin-bottom:5px;
+    border:1px solid #a1a1a1;
 }
 
 .transactions .transDate
@@ -42,7 +105,7 @@ body
 
 .transactions .income
 {
-    background:#68B388;
+    background:#57aa7f;
     transition: all .20s ease-in;
     -moz-transition: all .20s ease-in;
     -webkit-transition: all .20s ease-in;
@@ -50,12 +113,12 @@ body
 
 .transactions .income:hover
 {
-    background:#396E50;
+    background:#4A976E;
 }
 
 .transactions .expense
 {
-    background:#E87373;
+    background:#C54E20;
     transition: all .20s ease-in;
     -moz-transition: all .20s ease-in;
     -webkit-transition: all .20s ease-in;
@@ -63,7 +126,7 @@ body
 
 .transactions .expense:hover
 {
-    background:#D74030;
+    background:#9F3F1A;
 }
 
 .transactions .description
@@ -112,8 +175,31 @@ body
     margin-bottom:10px;
 }
 
+.btn-primary
+{
+    background:#ffb03b;
+    color:#fff;
+    transition: all .20s ease-in;
+    -moz-transition: all .20s ease-in;
+    -webkit-transition: all .20s ease-in;
+    font-size:18px;
+    font-weight:300;
+}
+
+.btn-primary:hover, btn-primary:focus
+{
+    background:#FFD38A;
+    color:#494949;
+}
+
+.navbar
+{
+    margin-bottom:0;
+}
+
 /* Helpers */
 
 .margin-top-10 { margin-top: 10px; }
+.margin-top-20 { margin-top: 20px; }
 
 .nodisplay { display:none; }
