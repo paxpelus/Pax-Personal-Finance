@@ -1,5 +1,5 @@
 Meteor.methods({
-  addTransaction: function (type, amount, description, tags, transDate) {
+  addTransaction: function (type, amount, description, tags, transDate, currentMonth) {
     // Make sure the user is logged in before inserting a task
     if (! Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
@@ -11,6 +11,7 @@ Meteor.methods({
         'description': description,
         'tags': tags,
         'transDate': new Date(transDate),
+        'currentMonth' : currentMonth.toString(),
         'owner' : this.userId
     });
   },

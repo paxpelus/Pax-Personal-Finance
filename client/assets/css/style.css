@@ -186,7 +186,7 @@ body
     font-weight:300;
 }
 
-.btn-primary:hover, btn-primary:focus
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active
 {
     background:#FFD38A;
     color:#494949;

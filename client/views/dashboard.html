@@ -65,14 +65,17 @@
                         </div>
                     </div>
                 </div>
-                
+                {{#if months }}
                 <div class="row">
                     <div class="col-xs-12">
-                        <select class="form-control">
-                            <option>January 2015</option>
+                        <select class="form-control currentMonth">
+                            {{#each months}}
+                                <option {{isCurrentMonth this}} value="{{ this }}">{{ this }}</option>
+                            {{/each}}
                         </select>
                     </div>
                 </div>
+                {{/if}}
                 
                 <ul class="transactions">
                 {{#each transactions}}
