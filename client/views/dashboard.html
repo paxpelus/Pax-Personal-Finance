@@ -30,8 +30,14 @@
                             </div>
                         </div>
                         
-                        <div class="col-xs-12 margin-top-10">
+                        <div class="col-xs-12 margin-top-10 block-save-transaction">
                             <button class="btn btn-primary btn-block btn-save-transaction">Add Transaction</button>
+                        </div>
+                        
+                        <div class="col-xs-12 margin-top-10 block-edit-transaction nodisplay">
+                            <input type="hidden" class="transaction-id"/>
+                            <button class="btn btn-primary btn-block btn-edit-transaction">Save Changes</button>
+                            <button class="btn btn-link btn-block btn-cancel-edit-transaction">Cancel</button>
                         </div>
                         
                         <div class="col-xs-12 margin-top-10">
@@ -94,6 +100,7 @@
         <span class="amount">{{ amount }} &euro;</span>
         <span class="description">{{description}}</span>
         <span class="glyphicon glyphicon-remove delete-transaction" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-pencil edit-transaction" aria-hidden="true"></span>
         <span class="transTags">
             {{#each tags}}
                 <span class="tag">{{ this }}</span>

@@ -134,6 +134,15 @@ body
     font-weight:300;
 }
 
+.transactions .edit-transaction
+{
+    float:right;
+    font-size:18px;
+    position:relative;
+    top:3px;
+    margin-right:10px;
+}
+
 .transactions .delete-transaction
 {
     float:right;

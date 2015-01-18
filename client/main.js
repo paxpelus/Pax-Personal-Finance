@@ -94,12 +94,7 @@ Template.dashboard.events({
     
     Meteor.call("addTransaction", type, amount, description, tags, transDate, currentMonth);
     
-    // Clear form
-    $(".transaction .type").val("income");
-    $(".transaction .amount").val("");
-    $(".transaction .description").val("");
-    $('.tags').tagsinput('removeAll');
-    $('.datetimepicker').data("DateTimePicker").setDate(moment()); 
+    clearForm();
     
     // Prevent default form submit
     return false;
@@ -108,6 +103,78 @@ Template.dashboard.events({
       Meteor.call("deleteTransaction", this._id);
       
       checkAfterDelete();
+  },
+  "click .edit-transaction": function () {
+    
+      clearForm();
+      
+      var transaction = Transactions.findOne({'owner' : Meteor.userId(), '_id': this._id} , { sort : {transDate: -1}});
+      
+      $(".type").val(transaction.type);
+      $(".amount").val(transaction.amount);
+      $(".description").val(transaction.description);
+      $('.datetimepicker').data("DateTimePicker").setDate(transaction.transDate); 
+      
+      if(transaction.tags)
+      {
+        for(var i=0 ; i<transaction.tags.length; i++)
+        {
+          $(".tags").tagsinput('add', transaction.tags[i]);  
+        }
+      }
+      
+      $(".transaction-id").val(this._id);
+      
+      $(".block-save-transaction").hide();
+      $(".block-edit-transaction").show();
+  },
+  "click .btn-edit-transaction": function () {
+    
+    $(".alert").hide();
+    
+    var type = $(".transaction .type").val();
+    var amount = $(".transaction .amount").val();
+    var description = $(".transaction .description").val();
+    var tags = $(".transaction .tags").val();
+    var transDate = $(".transaction .transDate").val();
+    var id = $(".transaction-id").val();
+    
+    if(isNaN(amount) || !amount){
+      $(".alert").html("The amount is not valid").show();
+      return false;
+    }
+    
+    if(!moment(transDate).isValid())
+    {
+      $(".alert").html("Enter a valid date").show();
+      return false;
+    }
+    
+    var currentMonth = moment(transDate).format('MMMM YYYY');
+    
+    Session.set("currentMonth", currentMonth);
+    
+    Meteor.call("updateTransaction", id, type, amount, description, tags, transDate, currentMonth);
+    
+    clearForm();
+    
+    $(".block-save-transaction").show();
+    $(".block-edit-transaction").hide();
+    
+    // Prevent default form submit
+    return false;
+    
+  },
+  "click .btn-cancel-edit-transaction": function () {
+    
+    clearForm();
+    
+    $(".block-save-transaction").show();
+    $(".block-edit-transaction").hide();
+    
+    // Prevent default form submit
+    return false;
+    
   },
   "change .currentMonth": function (event) {
       Session.set("currentMonth", $(event.target).val());
@@ -128,6 +195,17 @@ Accounts.ui.config({
   passwordSignupFields: "USERNAME_AND_EMAIL"
 });
 
+
+function clearForm()
+{
+  // Clear form
+  $(".transaction .type").val("income");
+  $(".transaction .amount").val("");
+  $(".transaction .description").val("");
+  $('.tags').tagsinput('removeAll');
+  $('.datetimepicker').data("DateTimePicker").setDate(moment()); 
+  $(".transaction-id").val("");
+}
 
 //Check the session and create current month if it does not exist
 function checkSession()
